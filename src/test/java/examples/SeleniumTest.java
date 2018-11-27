@@ -29,7 +29,7 @@ public class SeleniumTest {
 		System.out.println(prop.getProperty("Username"));
 		System.out.println(prop.getProperty("Password"));
 	}
- @Test
+ @Test(enabled=false)
 	public void launchBrowser() {
 		System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
 		WebDriver driver=new FirefoxDriver();

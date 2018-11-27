@@ -19,7 +19,7 @@ import cucumber.api.java.en.When;
 
 public class StepDefinition {
 	WebDriver driver;
-	int sum=0;
+	int result=0;
 	List<Integer> numbers=new ArrayList<Integer>();
 	DirectoryPage dirPage=new DirectoryPage(driver);
 	OrangeHRMHomePage homePage=new OrangeHRMHomePage(driver);
@@ -107,14 +107,25 @@ public class StepDefinition {
 		
 	    for(int num: numbers)
 	    {
-	    	sum=sum+num;
+	    	result=result+num;
 	    }
 	}
 
 	@Then("^I should get (\\d+)$")
 	public void i_should_get(int arg1) throws Throwable {
-	    Assert.assertEquals(arg1, sum);
+	    Assert.assertEquals(arg1, result);
 	}
+	
+	@When("^I Multiply them$")
+	public void i_Multiply_them() throws Throwable {
+		int k=1;
+		 for(int num: numbers)
+		    {
+		    	k=k*num;
+		    }
+		 result=k;
+	}
+
 	
 	@When("^I click on Directory tab$")
 	public void i_click_on_Directory_tab() throws Throwable {
